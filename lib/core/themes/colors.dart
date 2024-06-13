@@ -4,51 +4,12 @@ class AppColors {
   static const Color backgroundColor = Color(0xFFF4F5F7);
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color cFFD3AF = Color(0xFFFFD3AF);
-  static const Color cDDDFDF = Color(0xFFDDDFDF);
+  static const Color grey = Color.fromARGB(255, 184, 184, 184);
 
-  static const Color cFFF9EC = Color(0xFFFFF9EC);
-  static const Color cF7F8FC00 = Color(0xFFF7F8FC);
   static const Color cA4ACAD = Color(0xFFA4ACAD);
-  static const Color cFF7300 = Color(0xFFFF7300);
-  static const Color cFF730015 = Color.fromARGB(15, 255, 115, 0);
-  static const Color cFF730038 = Color.fromARGB(138, 255, 115, 0);
-  static const Color cFFCD4D = Color(0xFFFFCD4D);
-  static const Color cE7E7E7 = Color(0xFFE7E7E7);
-  static const Color cF1F1F1 = Color(0xFFF1F1F1);
-  static const Color cF2F2F2 = Color(0xFFF2F2F2);
-  static const Color cC8FB71 = Color(0xFFC8FB71);
 
-  static const Color c00243C = Color(0xFF00243C);
-  static const Color c02383B = Color(0xFF02383B);
-  static const Color c5B6C8C = Color(0xFF5B6C8C);
-  static const Color c335C64 = Color(0xFF335C64);
-  static const Color c1F2C45 = Color(0xFF1F2C45);
-  static const Color c698A91 = Color(0xFF698A91);
-  static const Color cF6F6F6 = Color(0xFFF6F6F6);
-  static const Color c220E5F = Color(0xFF220E5F);
-  static const Color c455A64 = Color(0xFF455A64);
   static const Color c888888 = Color(0xFF888888);
   static const Color primary = Color(0xFFFF7300);
-  static const Color cFF9201 = Color(0xFFFF9201);
-  static const Color cFC3A48 = Color(0xFFFC3A48);
-  static const Color cD1FBFF = Color(0xFFD1FBFF);
-
-  static const Color c111827 = Color(0xFF111827);
-  static const Color c41FF5F = Color(0xFF41FF5F);
-  static const Color c00A550 = Color(0xFF00A550);
-  static const Color c20B61D = Color(0xFF20B61D);
-  static const Color c4ED885 = Color(0xFF4ED885);
-  static const Color cFF1843 = Color(0xFFFF1843);
-  static const Color c38C853 = Color(0xFF38C853);
-  static const Color cD2FF74 = Color(0xFFD2FF74);
-  static const Color c6B7280 = Color(0xFF6B7280);
-  static const Color cF0F0F0 = Color(0xFFF0F0F0);
-  static const Color cE51937 = Color(0xFFE51937);
-  static const Color c1B273A = Color(0xFF1B273A);
-  static const Color cD9D9D9 = Color(0xFFD9D9D9);
-  static const Color cFF3FA7 = Color(0xFFFF3FA7);
-  static const Color c34B448 = Color(0xFF34B448);
 
   static const Color transparent = Colors.transparent;
   static const Color cD8FAFF = Color(0xFFD8FAFF);

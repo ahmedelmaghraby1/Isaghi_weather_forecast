@@ -1,18 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-// import '../../../core/src/app_export.dart';
+import 'package:isaghi/core/src/app_exports.dart';
+
 import 'state.dart';
 
 class InternetCubit extends Cubit<InternetState> {
-  late StreamSubscription<ConnectivityResult> _subscription;
+  final Connectivity _connectivity;
+  late StreamSubscription<List<ConnectivityResult>> _subscription;
 
-  InternetCubit() : super(InternetInitial()) {
+  InternetCubit(
+    this._connectivity,
+  ) : super(InternetInitial()) {
+    // Initialize the subscription in the constructor
     _subscription =
-        Connectivity().onConnectivityChanged.listen(_handleConnectivityChange)
-            as StreamSubscription<ConnectivityResult>;
+        _connectivity.onConnectivityChanged.listen(_handleConnectivityChange);
 
     // Check the initial connectivity state
     checkConnection();

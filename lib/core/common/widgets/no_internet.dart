@@ -25,7 +25,7 @@ class NoInternet extends StatelessWidget {
             Text(
               "noInternetHeader".tr(context),
               style: AppTextStyles.textStyle(
-                color: AppColors.c00243C,
+                // color: AppColors.c00243C,
                 size: 16,
                 weight: FontWeight.w700,
               ),
@@ -61,7 +61,7 @@ class NoInternet extends StatelessWidget {
                   gradient: const LinearGradient(
                     colors: [
                       AppColors.primary,
-                      AppColors.cFFCD4D,
+                      // AppColors.cFFCD4D,
                     ],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:isaghi/features/internet/cubit/cubit.dart';
-import 'package:isaghi/main.dart';
+import 'package:isaghi/core/src/app_exports.dart';
 
 class WeatherForecastApp extends StatelessWidget {
   const WeatherForecastApp({super.key});
@@ -11,9 +7,49 @@ class WeatherForecastApp extends StatelessWidget {
     return ScreenUtilInit(
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<InternetCubit>(create: (context) => InternetCubit()),
+          BlocProvider<LocalizationBloc>(
+              create: (context) => getIt<LocalizationBloc>()),
+          BlocProvider<InternetCubit>(
+              create: (context) => getIt<InternetCubit>()),
         ],
-        child: MyApp(),
+        child: BlocBuilder<LocalizationBloc, LocalizationState>(
+          buildWhen: (previous, current) => previous != current,
+          builder: (_, localeState) {
+            return MaterialApp(
+              builder: (context, child) {
+                return MediaQuery(
+                    data: MediaQuery.of(context)
+                        .copyWith(textScaler: const TextScaler.linear(1)),
+                    child: child!);
+              },
+              localizationsDelegates: const [
+                AppLocalizationDelegate(),
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: AppLocalization.supportedLocales,
+              localeResolutionCallback: (deviceLocale, supportedLocales) {
+                for (var locale in supportedLocales) {
+                  if (deviceLocale != null &&
+                      deviceLocale.languageCode == locale.languageCode) {
+                    return deviceLocale;
+                  }
+                }
+                return supportedLocales.first;
+              },
+              // locale: getIt<SharedPreferences>().getString("locale") == null
+              //     ? localeState.locale
+              //     : Locale(getIt<SharedPreferences>().getString("locale")!),
+              title: 'Weather forecast app',
+              restorationScopeId: 'app',
+              debugShowCheckedModeBanner: false,
+              theme: AppThemes.lightTheme,
+              initialRoute: AppRoutes.homeScreen,
+              onGenerateRoute: AppRouter.generateRoutes,
+            );
+          },
+        ),
       ),
     );
   }

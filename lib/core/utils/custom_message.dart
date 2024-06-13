@@ -30,7 +30,7 @@ class CustomMessage {
       showCloseIcon: false,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.5.r),
-          side: BorderSide(width: 1.sp, color: AppColors.cDDDFDF)),
+          side: BorderSide(width: 1.sp, color: AppColors.grey)),
       behavior: SnackBarBehavior.floating,
       margin: EdgeInsetsDirectional.only(bottom: 65.h, start: 25.w, end: 25.w),
       padding: EdgeInsetsDirectional.only(

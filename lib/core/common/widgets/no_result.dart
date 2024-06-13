@@ -1,5 +1,4 @@
 import 'package:isaghi/core/constants/image_constants.dart';
-import 'package:isaghi/core/localization/app_localization.dart';
 import 'package:isaghi/core/src/app_exports.dart';
 
 class NoResult extends StatelessWidget {
@@ -15,7 +14,7 @@ class NoResult extends StatelessWidget {
         Text(
           'noElements'.tr(context),
           style: AppTextStyles.textStyle(
-            color: AppColors.c00243C,
+            // color: AppColors.c00243C,
             size: 16,
             weight: FontWeight.w700,
           ),
