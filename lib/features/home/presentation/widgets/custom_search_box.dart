@@ -4,8 +4,11 @@ import 'package:isaghi/core/src/app_exports.dart';
 class CustomSearchField extends StatelessWidget {
   final double? height;
   final double? width;
+  final int? maxLength;
   final TextStyle? hintStyle;
+  final TextStyle? errorStyle;
   final String? hintText;
+  final TextEditingController? controller;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   const CustomSearchField({
@@ -17,6 +20,9 @@ class CustomSearchField extends StatelessWidget {
     this.validator,
     this.hintStyle,
     this.hintText,
+    this.maxLength,
+    this.errorStyle,
+    this.controller,
   });
   final String? Function(String?)? validator;
 
@@ -28,23 +34,31 @@ class CustomSearchField extends StatelessWidget {
       height: height,
       width: width,
       child: TextFormField(
+        style: const TextStyle(
+            color: AppColors.white,
+            fontSize: 16,
+            textBaseline: TextBaseline.alphabetic),
+        controller: controller,
+        maxLength: maxLength,
         cursorColor: AppColors.blue,
         decoration: InputDecoration(
+            counterStyle: AppTextStyles.textStyle(color: AppColors.white),
+            errorStyle: errorStyle,
             hintText: hintText,
             hintStyle: hintStyle,
             border: InputBorder.none,
-            disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1.sp, color: AppColors.blue),
-                borderRadius: BorderRadius.circular(10.r)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1.sp, color: AppColors.blue),
-                borderRadius: BorderRadius.circular(10.r)),
-            errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1.sp, color: AppColors.blue),
-                borderRadius: BorderRadius.circular(10.r)),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1.sp, color: AppColors.blue),
-                borderRadius: BorderRadius.circular(10.r))),
+            disabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(width: 1.sp, color: AppColors.white),
+                borderRadius: BorderRadius.circular(5.r)),
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(width: 1.sp, color: AppColors.white),
+                borderRadius: BorderRadius.circular(5.r)),
+            errorBorder: UnderlineInputBorder(
+                borderSide: BorderSide(width: 1.sp, color: AppColors.white),
+                borderRadius: BorderRadius.circular(5.r)),
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(width: 1.sp, color: AppColors.white),
+                borderRadius: BorderRadius.circular(5.r))),
         validator: validator,
       ),
     );
