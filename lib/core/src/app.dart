@@ -38,9 +38,9 @@ class WeatherForecastApp extends StatelessWidget {
                 }
                 return supportedLocales.first;
               },
-              // locale: getIt<SharedPreferences>().getString("locale") == null
-              //     ? localeState.locale
-              //     : Locale(getIt<SharedPreferences>().getString("locale")!),
+              locale: getIt<SharedPreferences>().getString("locale") == null
+                  ? localeState.locale
+                  : Locale(getIt<SharedPreferences>().getString("locale")!),
               title: 'Weather forecast app',
               restorationScopeId: 'app',
               debugShowCheckedModeBanner: false,

@@ -1,5 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dio/dio.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get_it/get_it.dart';
 import 'package:isaghi/core/helpers/dio_helper.dart';
 import 'package:isaghi/core/src/app_exports.dart';
@@ -8,6 +8,7 @@ import 'package:isaghi/features/home/data/apis/weather_api.dart';
 import 'package:isaghi/features/home/data/repositories/weather_repository.dart';
 
 GetIt getIt = GetIt.instance;
+late Position position;
 
 void initGetIt() {
   /// BLoC

@@ -18,8 +18,7 @@ class AppRouter {
               switch (settings.name) {
                 case AppRoutes.homeScreen:
                   return BlocProvider<HomeCubit>(
-                    create: (context) =>
-                        getIt<HomeCubit>()..getWeather('paris'),
+                    create: (context) => getIt<HomeCubit>(),
                     child: const HomeScreen(),
                   );
                 default:

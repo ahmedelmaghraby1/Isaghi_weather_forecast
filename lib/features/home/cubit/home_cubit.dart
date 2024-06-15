@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:bloc/bloc.dart';
+import 'package:isaghi/core/src/app_exports.dart';
+import 'package:isaghi/features/home/data/models/weather_model.dart';
 
 import 'package:isaghi/features/home/data/repositories/weather_repository.dart';
 
@@ -10,7 +11,28 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(
     this._weatherRepository,
   ) : super(HomeInitial());
-  Future getWeather(String city) async {
-    await _weatherRepository.getWeather(city);
+  static HomeCubit get(BuildContext context) =>
+      BlocProvider.of<HomeCubit>(context);
+  WeatherForecastModel? cityWeatherModel;
+  WeatherForecastModel? currentLocationModel;
+  Future getCurrentLocationWeather(String city) async {
+    emit(CurrentLocationWeatherLoading());
+    final response = await _weatherRepository.getCityWeather(city);
+    if (response == false) {
+      emit(CurrentLocationWeatherLoadingFailed());
+    } else {
+      currentLocationModel = response;
+      emit(CurrentLocationWeatherLoadedSuccessfully());
+    }
+  }
+
+  Future getCityWeather(String city) async {
+    emit(WeatherLoading());
+    final response = await _weatherRepository.getCityWeather(city);
+    if (response == false) {
+      emit(WeatherLoadingFailed());
+    } else {
+      emit(WeatherLoadedSuccessfully());
+    }
   }
 }

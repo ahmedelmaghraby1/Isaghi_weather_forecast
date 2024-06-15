@@ -1,1 +1,4 @@
-final Map<String, String> arEg = {'appBarTitle': 'حالة الطقس اليوم'};
+final Map<String, String> arEg = {
+  'appBarTitle': 'حالة الطقس اليوم',
+  'language': 'اللغة'
+};
