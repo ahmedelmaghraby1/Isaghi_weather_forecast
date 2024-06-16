@@ -10,7 +10,8 @@ import 'package:isaghi/features/home/data/repositories/weather_repository.dart';
 
 GetIt getIt = GetIt.instance;
 late Position position;
-DateFormat dateFormat = DateFormat('EEEE,dd/MM/yy');
+DateFormat dateTimeFormat = DateFormat('yyyy-MM-dd HH:mm');
+DateFormat dateFormat = DateFormat('dd/MM/yyyy');
 DateFormat timeFormat = DateFormat('h:mm a');
 
 void initGetIt() {
