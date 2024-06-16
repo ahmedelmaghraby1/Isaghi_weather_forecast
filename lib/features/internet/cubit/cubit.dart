@@ -23,7 +23,8 @@ class InternetCubit extends Cubit<InternetState> {
   }
 
   void _handleConnectivityChange(List<ConnectivityResult> result) {
-    if (result.contains(ConnectivityResult.wifi)) {
+    if (result.contains(ConnectivityResult.wifi) ||
+        result.contains(ConnectivityResult.mobile)) {
       connected();
     } else {
       notConnected();
