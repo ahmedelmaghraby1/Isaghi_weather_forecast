@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(children: [
                     SizedBox(
-                      height: 60.h,
+                      height: 40.h,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.only(end: 15.w),
